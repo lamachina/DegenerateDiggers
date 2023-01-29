@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { makeStyles, Stepper, Step, StepLabel, StepContent, Radio, FormControlLabel, RadioGroup } from '@material-ui/core';
-import { Button, Card, Grid } from '@mui/material';
+import { makeStyles } from '@material-ui/core';
+import { Button, Card, Grid, Stepper, Step, StepLabel, StepContent, Radio, FormControlLabel, RadioGroup } from '@mui/material';
 import { Stack } from '@mui/system';
 import "../App.css"
 
