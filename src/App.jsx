@@ -12,6 +12,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
 import Home from './section/Home';
 import { Button } from '@mui/material';
+import StepperWithQuestion from './section/StepperWithQuestion';
 
 
 const { chains, provider } = configureChains(
@@ -159,7 +160,7 @@ function App() {
                   <Home />
                 } />
                 <Route path="/stepper" element={
-                  <Home />
+                  <StepperWithQuestion />
                 } />
 
               </Routes>
