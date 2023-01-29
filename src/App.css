@@ -59,3 +59,14 @@ nav a {
   display: flex;
   align-items: flex-start;
 }
+
+.stepPi {
+  display: flex;
+  align-items: flex-start;
+}
+
+.stepPiColumn {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}

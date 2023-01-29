@@ -1,19 +1,9 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/index';
 import { Button, Card, Grid, Stepper, Step, StepLabel, StepContent, Radio, FormControlLabel, RadioGroup } from '@mui/material';
 import { Stack } from '@mui/system';
 import "./../App.css"
 
-const useStyles = makeStyles((theme) => ({
 
-    stepContent: {
-        marginTop: theme.spacing(1),
-    },
-    stepPi: {
-        alignItems: 'flex-start !important',
-    }
-
-}));
 
 const questions = [
     "TEAM: business & dev",
@@ -30,7 +20,6 @@ const answers = [
 ];
 
 function StepperWithQuestion() {
-    const classes = useStyles();
     const [activeStep, setActiveStep] = useState(0);
     const [selectedValues, setSelectedValues] = useState({});
 
@@ -50,12 +39,12 @@ function StepperWithQuestion() {
     };
 
     return (
-        <Grid className={classes.root}>
-            <Stepper activeStep={activeStep} orientation="vertical" className={classes.stepPi}>
+        <Grid display='flex' flexDirection='column'>
+            <Stepper activeStep={activeStep} orientation="vertical" className="stepPi">
                 {questions.map((question, index) => (
-                    <Step className={classes.stepPi} key={question} >
+                    <Step className="stepPiColumn" key={question} >
                         <StepLabel>{question}</StepLabel>
-                        <StepContent className={classes.stepPi}>
+                        <StepContent className="stepPi">
                             <RadioGroup name={question} value={selectedValue} onChange={handleChange}>
                                 {answers[index].map((answer) => (
                                     <FormControlLabel key={answer} value={answer} control={<Radio />} label={answer} />
@@ -75,7 +64,7 @@ function StepperWithQuestion() {
                     </Step>
                 ))}
             </Stepper>
-            <Card>
+            <Card sx={{ padding: '1rem' }}>
                 {activeStep === questions.length &&
                     Object.entries(selectedValues).map(([question, answer]) => (
                         <div key={question}>

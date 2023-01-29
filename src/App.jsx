@@ -11,7 +11,7 @@ import { publicProvider } from 'wagmi/providers/public';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
 import Home from './section/Home';
-import { Button } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import StepperWithQuestion from './section/StepperWithQuestion';
 
 
@@ -151,7 +151,7 @@ function App() {
 
               </nav>
             </header>
-            <div>
+            <Grid p="1rem">
               <Routes>
                 <Route exact path="/" element={
                   <Home />
@@ -164,7 +164,7 @@ function App() {
                 } />
 
               </Routes>
-            </div>
+            </Grid>
           </div>
         </RainbowKitProvider>
       </WagmiConfig>
