@@ -12,7 +12,7 @@ function DegenEye() {
             'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?id=1,1027,1839,74&convert=USD',
             {
                 headers: {
-                    'X-CMC_PRO_API_KEY': '3fdcb402-f63c-4ada-89f0-e311abe934b3'
+                    'X-CMC_PRO_API_KEY': APIKEY
                 }
             }
         );
