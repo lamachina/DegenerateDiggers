@@ -13,6 +13,7 @@ import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
 import Home from './section/Home';
 import { Button, Grid } from '@mui/material';
 import StepperWithQuestion from './section/StepperWithQuestion';
+import About from './section/About';
 
 
 const { chains, provider } = configureChains(
@@ -48,7 +49,7 @@ function App() {
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider coolMode modalSize="compact" chains={chains}
           appInfo={{
-            appName: 'RainbowKit Demo',
+            appName: 'RainbowKit DegenDiggers',
             disclaimer: Disclaimer,
           }}>
           <div className="App">
@@ -157,7 +158,7 @@ function App() {
                   <Home />
                 } />
                 <Route path="/about" element={
-                  <Home />
+                  <About />
                 } />
                 <Route path="/stepper" element={
                   <StepperWithQuestion />
