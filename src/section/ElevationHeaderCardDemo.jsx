@@ -1,32 +1,8 @@
 import React, { useState } from 'react';
-import cx from 'clsx';
+import { Card, TableHead, CardContent, CardHeader, Table, TableRow, TableCell, TableBody, Button, Typography } from '@mui/material';
 
-import { Card, TableHead, CardContent, CardHeader, Table, TableRow, TableCell, TableBody, makeStyles } from '@material-ui/core';
-import { Button, Typography } from '@mui/material';
-
-const useStyles = makeStyles(({ spacing }) => ({
-    card: {
-        marginTop: 40,
-        borderRadius: spacing(0.5),
-        transition: '0.3s',
-        overflow: 'initial',
-        background: '#273859',
-        color: "#E5E7E6"
-    },
-    content: {
-        paddingTop: 0,
-        textAlign: 'left',
-        overflowX: 'auto',
-        background: '#F2F2F2',
-
-        '& table': {
-            marginBottom: 0,
-        },
-    },
-}));
 
 function ElevationHeaderCardDemo() {
-    const classes = useStyles();
     const [rows, setRows] = useState([]);
     let id = 0;
     function createData(name, symbol, price, change, changeD) {
@@ -71,16 +47,16 @@ function ElevationHeaderCardDemo() {
 
     };
 
-    function FetchButton(props) {
+    function FetchButton() {
         return (
             <Button sx={{ color: "#E5E7E6" }} onClick={handleClick}>Fetch Data</Button>
         );
     }
 
     return (
-        <Card className={cx(classes.card)}>
+        <Card sx={{ marginTop: "1rem", borderRadius: "0.5rem", transition: '0.3s', overflow: 'initial', backgroundColor: '#273859', color: "#E5E7E6" }}>
             <CardHeader title={'Cryptos'} action={<FetchButton />} />
-            <CardContent className={classes.content}>
+            <CardContent sx={{ pt: 0, textAlign: 'left', overflowX: 'auto', background: '#F2F2F2' }}>
                 {rows && (
                     <Table>
                         <TableHead >
