@@ -108,21 +108,21 @@ function ElevationHeaderCardDemo() {
     ];
 
     return (
-        <Card sx={{ marginTop: "1rem", borderRadius: "0.5rem", transition: '0.3s', backgroundColor: '#273859', color: "#E5E7E6" }}>
+        <Card sx={{ marginTop: "1rem", borderRadius: "0.5rem", transition: '0.3s', backgroundColor: '#171C26', color: "#E5E7E6" }}>
             <CardHeader title={'Cryptos'} action={<FetchButton />} />
             <CardContent sx={{ pt: 0, textAlign: 'left', overflowX: 'auto', background: '#F2F2F2' }}>
                 {categories.map((category) => (
                     <Table>
                         <TableHead>
-                            <TableRow sx={{ borderTopStyle: 'groove', borderTopColor: '#273859' }}>
-                                <TableCell width={"30%"} sx={{ background: '#273859' }}>
+                            <TableRow sx={{ background: '#273859' }}>
+                                <TableCell width={"30%"} sx={{ background: '#171C26' }}>
                                     <Typography color="#E5E7E6" variant='h6'>
                                         {category.title}
                                     </Typography>
                                 </TableCell>
-                                <TableCell align="right">1h Change (%)</TableCell>
-                                <TableCell align="right">24h Change (%)</TableCell>
-                                <TableCell align="right">Price ($USD)</TableCell>
+                                <TableCell align="right"> <Typography color="#E5E7E6" variant='overline'>1h Change (%)</Typography></TableCell>
+                                <TableCell align="right"><Typography color="#E5E7E6" variant='overline'>24h Change (%)</Typography></TableCell>
+                                <TableCell align="right"><Typography color="#E5E7E6" variant='overline'>Price (USD)</Typography></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
