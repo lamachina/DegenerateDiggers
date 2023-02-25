@@ -56,9 +56,9 @@ function ElevationHeaderCardDemo() {
     }
 
     // filter rows based on their name and assign them to different categories
-    const namesToFilterLayer1 = ['APTOS', 'AURORA', 'INJ', 'CANTO'];
+    const namesToFilterLayer1 = ['APT', 'AURORA', 'INJ', 'CANTO'];
     const layer1 = rows.filter(row => namesToFilterLayer1.includes(row.name));
-    const namesToFilterLayer2 = ['METIS', 'MATIC', 'MUTE', 'ZZ', 'ZKP'];
+    const namesToFilterLayer2 = ['MTS', 'MATIC', 'MUTE', 'ZZ', 'ZKP'];
     const layer2 = rows.filter(row => namesToFilterLayer2.includes(row.name));
     const namesToFilterLSD = ['LDO', 'FXS', 'RPL', 'BNC'];
     const lsd = rows.filter(row => namesToFilterLSD.includes(row.name));
@@ -70,6 +70,21 @@ function ElevationHeaderCardDemo() {
     const nft = rows.filter(row => namesToFilterNFT.includes(row.name));
     const namesToFilterPrivacy = ['SCRT', 'ROSE'];
     const privacy = rows.filter(row => namesToFilterPrivacy.includes(row.name));
+    const namesToFilterDex = ['OSMO', 'STG', 'UNI'];
+    const dex = rows.filter(row => namesToFilterDex.includes(row.name));
+    const namesToFiltergambling = ['RLB', 'DICE', 'UNI'];
+    const gambling = rows.filter(row => namesToFiltergambling.includes(row.name));
+
+    const rest = rows.filter(row =>
+        !namesToFilterLayer1.includes(row.name)
+        && !namesToFilterLayer2.includes(row.name)
+        && !namesToFilterLSD.includes(row.name)
+        && !namesToFilterDerivative.includes(row.name)
+        && !namesToFilterAI.includes(row.name)
+        && !namesToFilterNFT.includes(row.name)
+        && !namesToFilterDex.includes(row.name)
+        && !namesToFiltergambling.includes(row.name)
+        && !namesToFilterPrivacy.includes(row.name));
 
 
     const categories = [
@@ -101,10 +116,18 @@ function ElevationHeaderCardDemo() {
             title: 'Privacy',
             rows: privacy
         },
-        /*  {
-             title: 'All Cryptos',
-             rows: rows
-         } */
+        {
+            title: 'DEX',
+            rows: dex
+        },
+        {
+            title: 'Gambling',
+            rows: gambling
+        },
+        {
+            title: 'Cryptos without Category',
+            rows: rest
+        }
     ];
 
     return (
