@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Card, TableHead, CardContent, CardHeader, Table, TableRow, TableCell, TableBody, Button, Typography } from '@mui/material';
+import { Stack } from '@mui/system';
 
 
 function ElevationHeaderCardDemo() {
@@ -42,6 +43,7 @@ function ElevationHeaderCardDemo() {
                 item.quote.USD.percent_change_24h,
             );
         });
+        rows.sort((a, b) => b.changeD - a.changeD);
         setRows(rows);
 
 
@@ -53,27 +55,88 @@ function ElevationHeaderCardDemo() {
         );
     }
 
+    // filter rows based on their name and assign them to different categories
+    const namesToFilterLayer1 = ['APTOS', 'AURORA', 'INJ', 'CANTO'];
+    const layer1 = rows.filter(row => namesToFilterLayer1.includes(row.name));
+    const namesToFilterLayer2 = ['METIS', 'MATIC', 'MUTE', 'ZZ', 'ZKP'];
+    const layer2 = rows.filter(row => namesToFilterLayer2.includes(row.name));
+    const namesToFilterLSD = ['LDO', 'FXS', 'RPL', 'BNC'];
+    const lsd = rows.filter(row => namesToFilterLSD.includes(row.name));
+    const namesToFilterDerivative = ['GMX', 'PERP', 'UMAMI', 'GNS', 'DPX', 'RDNT', 'RIO', 'HEGIC', 'SWTH', 'DYDX', 'DDX', 'PILOT', 'WOO', 'GMD', 'DXP', 'MAN', 'STRP'];
+    const derivative = rows.filter(row => namesToFilterDerivative.includes(row.name));
+    const namesToFilterAI = ['GRT', 'OCEAN', 'RLC', 'FET', 'AGIX'];
+    const ai = rows.filter(row => namesToFilterAI.includes(row.name));
+    const namesToFilterNFT = ['RARE', 'LOOK', 'SUPER', 'JPEG'];
+    const nft = rows.filter(row => namesToFilterNFT.includes(row.name));
+    const namesToFilterPrivacy = ['SCRT', 'ROSE'];
+    const privacy = rows.filter(row => namesToFilterPrivacy.includes(row.name));
+
+
+    const categories = [
+        {
+            title: 'Layer 1',
+            rows: layer1
+        },
+        {
+            title: 'Layer 2 & ZK',
+            rows: layer2
+        },
+        {
+            title: 'LSD',
+            rows: lsd
+        },
+        {
+            title: 'Derivatives & Options',
+            rows: derivative
+        },
+        {
+            title: 'AI',
+            rows: ai
+        },
+        {
+            title: 'NFT',
+            rows: nft
+        },
+        {
+            title: 'Privacy',
+            rows: privacy
+        },
+        /*  {
+             title: 'All Cryptos',
+             rows: rows
+         } */
+    ];
+
     return (
-        <Card sx={{ marginTop: "1rem", borderRadius: "0.5rem", transition: '0.3s', overflow: 'initial', backgroundColor: '#273859', color: "#E5E7E6" }}>
+        <Card sx={{ marginTop: "1rem", borderRadius: "0.5rem", transition: '0.3s', backgroundColor: '#273859', color: "#E5E7E6" }}>
             <CardHeader title={'Cryptos'} action={<FetchButton />} />
             <CardContent sx={{ pt: 0, textAlign: 'left', overflowX: 'auto', background: '#F2F2F2' }}>
-                {rows && (
+                {categories.map((category) => (
                     <Table>
-                        <TableHead >
-                            <TableRow>
-                                <TableCell></TableCell>
+                        <TableHead>
+                            <TableRow sx={{ borderTopStyle: 'groove', borderTopColor: '#273859' }}>
+                                <TableCell width={"30%"} sx={{ background: '#273859' }}>
+                                    <Typography color="#E5E7E6" variant='h6'>
+                                        {category.title}
+                                    </Typography>
+                                </TableCell>
                                 <TableCell align="right">1h Change (%)</TableCell>
                                 <TableCell align="right">24h Change (%)</TableCell>
                                 <TableCell align="right">Price ($USD)</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {rows.map((row) => (
+                            {category.rows.map((row) => (
                                 <TableRow key={row.id}>
-                                    <TableCell component="th" scope="row">
-                                        <Typography>
-                                            <strong>{row.name}</strong> ({row.symbol})
-                                        </Typography>
+                                    <TableCell component="th" scope="row" align='right'>
+                                        <Stack flexDirection='row' gap={1}>
+                                            <Typography sx={{ color: '#273859' }} variant='h6'>
+                                                <strong>{row.name}</strong>
+                                            </Typography>
+                                            <Typography variant='overline'>
+                                                ({row.symbol})
+                                            </Typography>
+                                        </Stack>
                                     </TableCell>
                                     <TableCell align="right">
                                         <Typography color={Math.round(row.change) == 0 ? "#000" : Math.round(row.change) > 0 ? "#014023" : "#A7001E"}>
@@ -95,6 +158,7 @@ function ElevationHeaderCardDemo() {
                             ))}
                         </TableBody>
                     </Table>
+                )
                 )}
             </CardContent>
         </Card>
