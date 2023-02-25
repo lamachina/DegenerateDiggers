@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import cx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Card, TableHead, CardContent, CardHeader, Table, TableRow, TableCell, TableBody } from '@material-ui/core';
+
+import { Card, TableHead, CardContent, CardHeader, Table, TableRow, TableCell, TableBody, makeStyles } from '@material-ui/core';
 import { Button, Typography } from '@mui/material';
 
 const useStyles = makeStyles(({ spacing }) => ({
