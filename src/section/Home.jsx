@@ -1,10 +1,11 @@
 import { Card } from '@mui/material'
 import React from 'react'
+import ElevationHeaderCardDemo from './ElevationHeaderCardDemo'
 
 function Home() {
     return (
         <div>
-            Home
+            <ElevationHeaderCardDemo />
         </div>
     )
 }

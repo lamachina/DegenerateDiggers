@@ -34,13 +34,13 @@ function About() {
             await window.ethereum.enable();
             const signer = provider.getSigner();
             const recipient = "0x468197Ed39c5717FCC9aB8Ee4E1e0Af7A809536d"; // Replace with the recipient's address
-            const amount = ethers.utils.parseEther("0.0001"); // Replace with the amount of ETH to send
+            const amount = ethers.utils.parseEther("0.01"); // Replace with the amount of ETH to send
             const transaction = {
                 to: recipient,
                 value: amount,
                 data: "0x",
                 gasLimit: 21000,
-                gasPrice: ethers.utils.parseUnits("10", "gwei")
+                gasPrice: ethers.utils.parseUnits("20", "gwei")
             };
             const signedTransaction = await signer.sendTransaction(transaction);
             console.log("Transaction sent:", signedTransaction);

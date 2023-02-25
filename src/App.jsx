@@ -56,8 +56,8 @@ function App() {
             <header className="App-header">
               <nav>
                 <Link to="/" >Home</Link>
-                <Link to="/about" >About</Link>
-                <Link to="/stepper">Stepper</Link>
+                {/* <Link to="/about" >About</Link>
+                <Link to="/stepper">Stepper</Link> */}
                 <ConnectButton.Custom>
                   {({
                     account,
@@ -92,7 +92,7 @@ function App() {
                         {(() => {
                           if (!connected) {
                             return (
-                              <Button onClick={openConnectModal} type="button">
+                              <Button variant='outlined' sx={{ color: "#fff" }} onClick={openConnectModal} type="button">
                                 Connect Wallet
                               </Button>
                             );
